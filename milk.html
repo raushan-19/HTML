@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Milk</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    header {
+      background-color: #ffcc00;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    select, input, button, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #ffcc00;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e6b800;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffcc00;
+      color: #fff;
+    }
+    .rating-section {
+      display: flex;
+      justify-content: space-around;
+    }
+    .rating-section span {
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    .active {
+      color: #ffcc00;
+    }
+    .milk-images {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .milk-images img {
+      width: 100px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Welcome to The Milk
+  </header>
+  <div class="container">
+    <!-- Order Form -->
+    <div class="card">
+      <h2>Order Milk</h2>
+      <form id="milkForm">
+        <label for="milkType">Select Milk Type:</label>
+        <select id="milkType" required>
+          <option value="">Select...</option>
+          <option value="Toned">Toned Milk</option>
+          <option value="Full Cream">Full Cream Milk</option>
+          <option value="Pasteurized">Pasteurized Milk</option>
+        </select>
+        <label for="quantity">Quantity (1-20L):</label>
+        <input type="number" id="quantity" min="1" max="20" required>
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" rows="3" required></textarea>
+        <label for="upi">UPI Payment ID:</label>
+        <input type="text" id="upi" required>
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+
+    <!-- Order Status -->
+    <div class="card">
+      <h2>Track Order</h2>
+      <div id="orderStatus">No active orders.</div>
+    </div>
+
+    <!-- Rating Section -->
+    <div class="card">
+      <h2>Rate Our Milk</h2>
+      <div class="rating-section">
+        <span class="star" data-rating="1">★</span>
+        <span class="star" data-rating="2">★</span>
+        <span class="star" data-rating="3">★</span>
+        <span class="star" data-rating="4">★</span>
+        <span class="star" data-rating="5">★</span>
+      </div>
+      <p id="ratingMessage">No rating given yet.</p>
+    </div>
+
+    <!-- Milk Images -->
+    <div class="card">
+      <h2>Milk Gallery</h2>
+      <div class="milk-images">
+        <img src="https://via.placeholder.com/100x100?text=Toned" alt="Toned Milk">
+        <img src="https://via.placeholder.com/100x100?text=Full+Cream" alt="Full Cream Milk">
+        <img src="https://via.placeholder.com/100x100?text=Pasteurized" alt="Pasteurized Milk">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2024 The Milk. All Rights Reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('milkForm');
+    const orderStatus = document.getElementById('orderStatus');
+    const stars = document.querySelectorAll('.star');
+    const ratingMessage = document.getElementById('ratingMessage');
+
+    // Handle order submission
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const milkType = document.getElementById('milkType').value;
+      const quantity = document.getElementById('quantity').value;
+      const address = document.getElementById('address').value;
+      const upi = document.getElementById('upi').value;
+
+      if (!milkType || !quantity || !address || !upi) {
+        alert('Please fill all fields.');
+        return;
+      }
+
+      orderStatus.textContent = Your order for ${quantity}L of ${milkType} Milk is being processed. It will be delivered to ${address}.;
+      alert('Order placed successfully!');
+      form.reset();
+    });
+
+    // Handle rating
+    stars.forEach((star) => {
+      star.addEventListener('click', function () {
+        stars.forEach((s) => s.classList.remove('active'));
+        this.classList.add('active');
+        const rating = this.getAttribute('data-rating');
+        ratingMessage.textContent = You rated us ${rating} star${rating > 1 ? 's' : ''}!;
+      });
+    });
+  </script>
+</body>
+</html>
