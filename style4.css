@@ -1,0 +1,17 @@
+div{
+    width: 100px;
+    height: 100px;
+    margin: 25px;
+    padding: 25px;
+    display: inline-block;
+}
+#d1{
+    background-color: aqua;
+}
+#d2{
+    background-color:brown;
+    display: none;
+}
+#d3{
+    background-color: chartreuse;
+}

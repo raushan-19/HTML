@@ -1,0 +1,20 @@
+*{
+   color: aliceblue; 
+}
+#navbar{
+    height: 60px;
+    background-color: black;
+    padding-top: 30px;
+}
+button{
+    background-color: #f08804;
+}
+#logo{
+    padding-left: 10px;
+    color:#f08804;
+    font-size: 25px;
+}
+a{
+    margin-right: 200px;
+    text-decoration: none;
+}
