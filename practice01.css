@@ -1,0 +1,48 @@
+#navbar{
+     height: 60px;
+     background-color: black;
+     color: aliceblue;
+     padding-top: 30px;
+ }
+ button{
+     background-color: #f08804;
+ }
+ #logo{
+     padding-left: 10px;
+     color:#f08804;
+     font-size: 25px;
+ }
+ a{
+     margin-right: 200px;
+     text-decoration: none;
+ }
+ #content
+ {
+    height: 700px;
+ }
+.contentbox{
+    height: 100px;
+    width: 100px;
+    border-width: medium;
+    border-color: black;
+    border-style: solid;
+    display: inline-block;
+}
+.footercontainer{
+    width: 100px;
+    padding:70px 30px 20px
+}
+.socialicons{
+    display: flex;
+    justify-content: center;
+}
+.socialicons{
+    text-decoration: none;
+    padding: 10px;
+    margin: 1opx;
+    border-radius: 50%;
+}
+footer{
+    background-color: black;
+    
+}
