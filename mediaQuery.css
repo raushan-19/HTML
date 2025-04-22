@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    width:200px;
+    height: 200px;
+    border-style: solid;
+    border-color: brown;
+    background-color: burlywood;
+}
+
+@media (min-width:600px) {
+    div{  
+        background-color: red;
+    }
+}
+
+@media(min-width:400px) and (max-width:500px){
+    div{
+        background-color: blueviolet;
+    }
+}
