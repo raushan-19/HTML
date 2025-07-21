@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    height: 200px;
+    width: 200px;
+    position: relative;
+    top: 100px;
+    border-radius: 50%;
+    border:  20px dotted #3b1c02;
+    border-top: 20px dotted #8E1616;
+    animation: spinAnimate 4s linear 0s infinite normal ;
+}
+
+@keyframes spinAnimate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
